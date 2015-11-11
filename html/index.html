@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mon CV</title> 
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="CSS/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script> <!--lien vers le fichier jquery pour l'effet "hover"-->
+    <script type="text/javascript" src="js/jquery.mixitup.min.js"></script> <!--lien vers fichier JQuery pour l'effet filtre-->
+    
+    <script type="text/javascript">
+    $(function () {
+        
+        var filterList = {
+        
+            init: function () {
+            
+                // Plugin Mixitup, qui permet de filtrer les vignettes par catégorie
+                $('#portfoliolist').mixitup({
+                    targetSelector: '.portfolio',
+                    filterSelector: '.filter',
+                    effects: ['fade'],
+                    easing: 'snap',
+                    // call the hover effect
+                    onMixEnd: filterList.hoverEffect()
+                });             
+            
+            },
+            
+            hoverEffect: function () {
+            
+                // Fonction pour l'effet "hover"
+                $('#portfoliolist .portfolio').hover(
+                    function () {
+                        $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                        $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');             
+                    },
+                    function () {
+                        $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                        $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');                               
+                    }       
+                );              
+            
+            }
+
+        };
+        
+        // Lance les deux fonctions "hover" et "filtre"
+        filterList.init();
+        
+        
+    }); 
+    </script>
+    
+</head>
+    
+<body>
+    <header>
+        <div class="conteneur">
+            <div class="image">
+                <img src="img/photo-profil.png" alt="Photo de profil"/>
+            </div>
+            <div class="entete">
+                <h1>MLN</h1>
+                <h2>Chargée de projet</h2>
+            </div>
+        </div>
+    </header>
+
+    <main>
+         <div class="colonne">
+            <div class="conteneur">
+                <h3>Formation</h3>
+                    <h5>Formations professionnelles</h5> 
+                        <ul><p><b>Depuis 2011</b></p>
+                            <li>Développement web - Simplonline</li>
+                            <li>Community Management - Agence IDAOS</li>
+                            <li>Marchés publics - Ministère chargé de l'éducation</li>
+                    </ul>
+                    <h5>Formation continue</h5>
+                        <ul><p><b>2001-2006</b></p>
+                            <li>Master 2 Professionnel "Droit & Administration" - IUP Denis Diderot (Dijon)</li>
+                            <li>Licence & Maitrise "Arts visuels" & "Histoire des Arts" - Université Rennes II</li>
+                    </ul>
+                </div>
+            </div>
+                        
+        <div class="colonne">
+            <div class="conteneur">
+                <h3>Mes ambitions</h3>
+                    <h5>Développement web</h5>
+                     <ul> 
+                        <li>Apprendre les bases du code</li>
+                        <li>Mieux comprendre la culture web</li>
+                        <li>Piloter des projets de communication incluant des développement web</li>
+                    </ul>
+            </div>
+        </div>
+
+        <div class="colonne">
+            <div class="conteneur">
+                <h3>Expérience professionnelle</h3>
+                    <h5>Depuis 2011 - Chargée de projet veille</h5>
+                        <ul><b>Ministère chargé de l’éducation nationale</b>
+                            <li>Veille stratégique & e-reputation</li>
+                            <li>Planning stratégique</li> 
+                        </ul>
+                    <h5>Depuis 2011 - Rédactrice freelance</h5>
+                        <ul><b>Haidi Milic Communication</b>
+                            <li>Réalisation de chroniques d’ouvrages</li>
+                            <li>Relecture et correction des épreuves</li>
+                        </ul>
+                    <h5>2008-2011 - Consultante Veille Médias</h5>
+                        <ul><b>Argus de la presse</b>
+                            <li>Veille et recommandations plurimédia</li>
+                        </ul>
+            </div>
+        </div>
+        
+        
+        <div class="container">
+           <h2>Mon portfolio</h2>
+           
+           <ul id="filters" class="clearfix row">
+               <li><span class="filter active" data-filter="cat1 cat2 cat3 cat4">Toutes mes catégories</span></li>
+               <li><span class="filter" data-filter="cat1">HTML/CSS</span></li>
+               <li><span class="filter" data-filter="cat2">Javascript</span></li>
+               <li><span class="filter" data-filter="cat3">Bootstrap</span></li>
+               <li><span class="filter" data-filter="cat4">Ruby</span></li>
+           </ul>
+           
+           <div id="portfoliolist">
+               
+               <div class="portfolio cat2" data-cat="cat2">
+                   <dic class="portfolio-wrapper">
+                       <img src="img/logo-js.png" alt="Logo javascript "/>
+                       <div class="label">
+                               <div class="label-text">
+                                   <a class="text-title">Titre de mon projet JS</a>
+                                   <span class="text-category">Javascript</span>
+                               </div>
+                               <div class="label-bg"></div>
+                       </div>
+                   </dic>
+               </div>
+               
+                <div class="portfolio cat1" data-cat="cat1">
+                   <dic class="portfolio-wrapper">
+                       <img src="img/logo-html-css.png" alt="Logos HTML et CSS"/>
+                       <div class="label">
+                               <div class="label-text">
+                                   <a class="text-title">Titre de mon projet HTML/CSS</a>
+                                   <span class="text-category">HTML/CSS</span>
+                               </div>
+                                <div class="label-bg"></div>
+                       </div>
+                   </dic>
+               </div>
+                
+                <div class="portfolio cat3" data-cat="cat3">
+                   <dic class="portfolio-wrapper">
+                       <img src="img/logo.bootstrap.png" alt="Logo Bootstrap"/>
+                       <div class="label">
+                               <div class="label-text">
+                                   <a class="text-title">Titre de mon projet Bootstrap</a>
+                                   <span class="text-category">Bootstrap</span>
+                               </div>
+                               <div class="label-bg"></div>
+                       </div>
+                   </dic>
+               </div>
+               
+                <div class="portfolio cat4" data-cat="cat4">
+                   <dic class="portfolio-wrapper">
+                       <img src="img/logo.ruby.png" alt="Logo Ruby"/>
+                       <div class="label">
+                               <div class="label-text">
+                                   <a class="text-title">Titre de mon projet Ruby</a>
+                                   <span class="text-category">Ruby</span>
+                               </div> <!-- label-texte -->
+                                <div class="label-bg">
+                                </div> <!-- label-bg -->
+                       </div> <!-- label -->
+                   </dic> <!-- portfolio-wrapper -->
+               </div> <!-- cat4 -->
+               
+           </div>
+            
+        </div> <!-- container -->
+        
+    </main>
+
+    <footer>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9965205755684!2d2.3589454335983127!3d48.85827673930568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e022a9bf45f%3A0x70082bef9b48eff5!2sRue+Elzevir%2C+Paris!5e0!3m2!1sfr!2sfr!4v1446566833357" width="50%" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <p>Mes coordonnées : 0600000000 / Paris IIIe</p>
+    </footer>>
+
+</body>
+</html>
