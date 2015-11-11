@@ -1,4 +1,4 @@
 # simplon_semaine_8
 FOAD Simplonline
 
-Exercice : ajouter un formulaire de contact à votre CV en ligne
+Exercice : ajout d'un formulaire de contact au CV en ligne
